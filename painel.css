@@ -1,0 +1,24 @@
+.painel-tab {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab {
+    background-color: #ffd900;
+    color: #222126;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tab-content {
+    display: none;
+}
+
+.gg {
+    /* Seu estilo personalizado para o fundo da página */
+    background-color: #ffd900;
+}

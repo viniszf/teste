@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="space1.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="yellow.css" title="yellow">
+
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Lightbox.min css -->
+    <link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">6
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="yellow.css" title="yellow">
+</head>
+<style>
+    /* Código CSS existente */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-cadastro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Card de cadastro */
+    .card-cadastro {
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        width: 300px;
+    }
+
+    .card-content {
+        text-align: center;
+    }
+
+    .perfil-titulo {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #4e4e4e;
+    }
+
+    .perfil-nome {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .perfil-email {
+        font-size: 16px;
+        font-style: italic;
+        color: #555;
+    }
+
+    .perfil-foto {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .perfil-foto:hover {
+        background-color: rgba(255, 255, 255, 0.5); /* White transparent filter */
+    }
+
+    .camera-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px; /* Adjusted size */
+        height: 30px; /* Adjusted size */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .perfil-foto:hover .camera-icon {
+        opacity: 1;
+    }
+
+    #foto-perfil {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .botao-upload {
+        margin-top: 10px;
+    }
+
+    #modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    #modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    #modal-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    
+    .gg {
+        background: #222126;
+    }
+
+    .perfil-foto:hover::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5); /* White transparent filter */
+        border-radius: 50%;
+    }
+    .confirm-button:hover {
+    background-color: rgb(22, 77, 22);
+    color: white;
+}
+.header.navigation {
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos horizontalmente */
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style-type: none; /* Remove os marcadores de lista */
+}
+
+.nav-item {
+    margin-right: 10px; /* Espaçamento entre os itens do menu */
+}
+
+.nav-link {
+    color: #333; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+    padding: 10px; /* Espaçamento interno dos links */
+    transition: color 0.3s ease; /* Transição suave da cor do texto */
+}
+
+.nav-link:hover {
+    color: #555; /* Cor do texto ao passar o mouse */
+}
+</style>
+<body class="gg">
+    <section class="header navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-md">
+                        <a class="navbar-brand" href="login.html"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="tf-ion-android-menu"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="painel.html">VOLTAR<span class="sr-only"></span></a>
+                                </li>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="main-cadastro">
+        <div class="left-cadastro">
+            <h1><span>Esse é o seu</span>  perfil!!!</h1>
+            
+            <div class="left-login-img">
+                <div class="perfil-foto" id="foto-perfil-container">
+                    <img id="foto-perfil" src="perfil.png" alt="Foto do Usuário">
+                    <img class="camera-icon" src="camera.png" alt="Ícone de Câmera">
+                </div>
+                <h2 class="perfil-titulo">Perfil do Usuário</h2>
+                <p><strong>Nome: </strong><span id="nome" class="perfil-nome"></span></p>
+                <p><strong>Email: </strong><span id="email" class="perfil-nome"></span></p>
+                <input type="file" id="input-foto" style="display: none;" accept="image/*">
+                <button id="botao-logout" class="btn btn-warning">Logout</button> <!-- Botão de logout -->
+                <button id="botao-excluir" class="btn btn-danger">Excluir Conta</button>
+
+                   <!-- Modal de confirmação para excluir conta -->
+<div id="modal-excluir" style="display: none;">
+    <div id="modal-excluir-content">
+        <p>Tem certeza que deseja excluir sua conta? Todos os seus dados serão apagados definitivamente.</p>
+        <div id="modal-excluir-buttons">
+            <button id="confirmar-excluir-conta" class="confirm-button">Excluir Conta</button>
+            <button id="cancelar-excluir-conta" class="confirm-button">Cancelar</button>
+        </div>
+    </div>
+</div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="modal">
+        <div id="modal-content">
+            <p>Deseja mudar ou excluir a foto?</p> <!-- alterado para incluir a opção de excluir -->
+            <div id="modal-buttons">
+                <button id="confirmar-mudar">Mudar Foto</button>
+                <button id="confirmar-excluir">Excluir Foto</button> <!-- novo botão -->
+                <button id="cancelar-mudar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmação para excluir conta -->
+ 
+
+
+    <script src="perfil.js" defer></script>
+    <script src="excluir_conta.js"></script>
+    <script src="encerrar.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+
+#leaderboard {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Estilos para cada item do ranking */
+.rank-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: white; /* Cor branca para os demais itens */
+}
+
+/* Estilos para as três primeiras posições */
+.rank-item.gold {
+    background-color: gold;
+    font-weight: bold;
+}
+
+.rank-item.silver {
+   background-color: silver;
+}
+
+.rank-item.bronze {
+    background-color: #cd7f32; /* Cor de bronze */
+}
+
+/* Estilo para a posição em negrito */
+.bold {
+    font-weight: bold;
+}
+
+/* Espaçamento entre as colunas do ranking */
+.position, .name, .score {
+    margin-right: 10px;
+}

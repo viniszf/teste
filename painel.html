@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpaceQuestions</title>
+    <link rel="stylesheet" href="painel.css" />
+    <link rel="stylesheet" href="space1.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Lightbox.min css -->
+    <link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="yellow.css" title="yellow">
+    <link rel="stylesheet" href="Kanit/Kanit-BlackItalic.ttf">
+    <link rel="stylesheet" href="ranking.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+
+    <style>
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+        }
+        .review-card {
+            background-color: var(--card-bg-color, #00000056); /* Cor do fundo do card */
+            color: var(--text-color, #ffd900); /* Cor do texto */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            font-family: 'Kanit-BlackItalic.ttf';
+        }
+        .overlay.show {
+            visibility: visible;
+        }
+
+        .main-cadastro1 {
+            width: 100vw;
+            height: 100vh;
+            background: #ffd900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ratings {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .stars {
+            font-size: 2em;
+            cursor: pointer;
+            margin: 0 5px;
+            color: grey;
+        }
+        .stars.selected {
+            color: gold;
+        }
+        .card-cadastro {
+            width: 60%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px 35px;
+            background: #3c3c44;
+            border-radius: 20px;
+            box-shadow: 0px 10px 40px #00000056;
+            margin-right: 140px;
+            margin-left: -300px;
+        }
+        .textfield {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 10px;
+        }
+        .textfield > input, .textfield > textarea {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            background: #232126;
+            color: #d0d0d0;
+            font-size: 12pt;
+            box-shadow: 0px 10px 40px #00000056;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .textfield > label {
+            color: #d0d0d0;
+            margin-bottom: 10px;
+        }
+        .textfield > input::placeholder, .textfield > textarea::placeholder {
+            color: #8c8c8d;
+        }
+        .bnt-cadastro {
+            width: 100%;
+            padding: 16px 0;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #222126;
+            background: #ffd900;
+            cursor: pointer;
+            box-shadow: 0px 10px 40px -12px #ffaa0052;
+        }
+        .stars {
+            font-size: 24px;
+            color: gray;
+        }
+        .stars.selected {
+            color: gold;
+        }
+
+        .left-cadastro1 {
+            width: 90vw;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-left: 60px;
+        }
+  
+        .left-cadastro1 > h1 {
+            font-size: 3vw;
+            font-weight: 700;
+            color: #d6d4d7;
+            margin-left: -30px;
+        }
+  
+        span {
+            color: #222126;
+          
+        }
+        .new {
+            color: #ffd900;
+         
+        }
+        .textfield > select {
+         width: 100%;
+         border: none;
+         border-radius: 10px;
+         padding: 15px;
+         background: #232126;
+         color: #d0d0d0;
+         font-size: 12pt;
+         box-shadow: 0px 10px 40px #00000056;
+         outline: none;
+         box-sizing: border-box;
+         appearance: none; /* Remove default arrow */
+     }
+     
+     .textfield > select option {
+         background: #232126;
+         color: #d0d0d0;
+     }
+     .yed{
+        background: #222126;
+        height: 100px;
+     }
+     
+     hr.divisoria {
+  border: 0;
+  height: 3px;
+  background: #ffd900;
+  margin: 15px 4;
+}
+.gg1{
+    background: #222126;
+}
+.header.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Adicione outros estilos conforme necessário */
+}
+.lua {
+            color: white;
+            font-size: 30px;
+            text-align: center;
+        }
+        #lii {
+            height: 60px;
+            width: 700px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto; /* Centraliza horizontalmente */
+        }
+        #ki {
+            margin-top: 50px;
+            margin-left: 30px;
+            margin-right: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column; /* Necessário para centralizar verticalmente */
+            text-align: center;
+            height: 100%;
+        }
+        .new {
+            color: #ffd900;
+         
+        }
+        .lu {
+            color: #ffd900;
+            justify-content: center;
+            text-align: center;
+        }
+        
+.foto-menu-container {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px; /* Ajuste conforme necessário */
+}
+
+.foto-menu {
+    width: 40px;  /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    border-radius: 50%;
+    object-fit: cover;
+}
+.foto-menu-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; /* Ajuste conforme necessário */
+    position: relative;
+}
+
+.foto-menu {
+    width: 40px;  /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Estilos para o menu de opções */
+.opcoes-menu {
+    display: none;
+    position: absolute;
+    top: 50px; /* Ajuste conforme necessário */
+    right: 0;
+    background-color: #3c3c44;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+.opcoes-menu a {
+    display: block;
+    padding: 10px;
+    color: #d0d0d0;
+    text-decoration: none;
+}
+
+.opcoes-menu a:hover {
+    background-color: #ffd900;
+    color: #222126;
+}
+
+/* Mostra o menu ao clicar */
+.foto-menu-container.show .opcoes-menu {
+    display: block;
+}
+.header.navigation {
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos horizontalmente */
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style-type: none; /* Remove os marcadores de lista */
+}
+
+.nav-item {
+    margin-right: 10px; /* Espaçamento entre os itens do menu */
+}
+
+.nav-link {
+    color: #333; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+    padding: 10px; /* Espaçamento interno dos links */
+    transition: color 0.3s ease; /* Transição suave da cor do texto */
+}
+
+.nav-link:hover {
+    color: #555; /* Cor do texto ao passar o mouse */
+}
+.header.navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;  
+}
+#PROJETOS {
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente */
+}
+
+
+
+.photo {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  border-radius: 50%; /* Formato redondo */
+  margin-bottom: 10px; /* Espaço entre as fotos */
+}
+
+.main-cadastro {
+  margin-left: 20px; /* Espaço entre as fotos e o conteúdo principal */
+}
+
+
+.header.navigation1 {
+  display: flex;
+  flex-direction: column; /* Coluna para os itens de navegação */
+  align-items: center;
+  padding: 10px;
+  background-color: #ffd900;
+}
+
+.nav-link1 {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.nav-link1 .nav-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 50%; /* Formato redondo para o ícone */
+  margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.nav-link1:hover {
+  color: #555;
+}
+body {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit-BlackItalic.ttf', sans-serif; /* Corrige o uso da fonte */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .header.navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000000;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #555;
+        }
+
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .left-cadastro {
+                margin-left: 20px;
+            }
+
+            .left-cadastro1 h1 {
+                font-size: 5vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-cadastro1 h1 {
+                font-size: 6vw;
+            }
+
+            .left-cadastro1 img {
+                width: 60%;
+                height: auto;
+            }
+        }
+        body {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit-BlackItalic.ttf', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #555;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .left-cadastro {
+        margin-left: 20px;
+    }
+
+    .left-cadastro1 h1 {
+        font-size: 5vw;
+    }
+
+    .header.navigation {
+        flex-direction: column;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-cadastro1 h1 {
+        font-size: 6vw;
+    }
+
+    .left-cadastro1 img {
+        width: 60%;
+        height: auto;
+    }
+
+    .main-cadastro {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .card-cadastro {
+        width: 100%;
+        margin: 0;
+    }
+
+    .left-cadastro1 {
+        width: 100%;
+        margin: 20px 0;
+    }
+}
+
+ </style>
+</head>
+<body class="gg1">
+   
+    <section class="header navigation">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-md">
+                <a class="navbar-brand" href="space1.html"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="tf-ion-android-menu"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto menu">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#INICIO">INÍCIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#SIMULADO">GERAR SIMULADO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#RENDIMENTO">RENDIMENTO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#CONCORRÊNCIA">RANKING</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<script src="adicionarFotoMenu.js"></script>
+    
+    <section id="INICIO">
+        <div class="yed"></div>
+    <div class="main-cadastro">
+        <br><br><br>
+        <div class="left-cadastro" id="ki">
+            <br><br><br>
+            <h1><span class="new">PAINEL TERRA ALIEN</span></h1>
+            <img src="cérebro2.png" class="left-login-img" alt="avaliacaoimg">
+        
+            <div class="right-cadastro"></div>
+            <div class="textfield">
+                <h1 class="lu">Bem-vindo ao Painel Terra Alien</h1>
+                <div class="textfield"></div>
+                <p class="lua">Prepare-se para suas provas com nossos simulados em diversas áreas do conhecimento.</p>
+                
+                <br><br><br><br>
+            </div>
+        </div>
+
+
+      </section>
+      <hr class="divisoria">
+    <section id="RENDIMENTO">
+        <div class="yed"></div>
+    <div class="main-cadastro">
+        <div class="left-cadastro"></div>
+        <div class="card-cadastro">
+            <h1>SEU RENDIMENTO</h1>
+            <div class="textfield">
+                <label for="area">Escolha a área:</label>
+                <select id="area" name="area">
+                <option value="">Todas</option>
+                <option value="humanas">Humanas</option>
+                <option value="naturezas">Naturezas</option>
+                <option value="linguagens">Linguagens</option>
+                <option value="exatas">Exatas</option>
+            </select>
+            </div>
+            <canvas id="performanceChart" width="400" height="400"></canvas>
+        </div>
+        <div class="left-cadastro1">
+            <h1><span class="new">PAINEL PRINCIPAL</span></h1>
+            <img src="10.png" class="left-login-img" alt="avaliacaoimg">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dados.js"></script>
+</section>
+<hr class="divisoria">
+</section>
+
+<section id="PROJETOS">
+    
+    <div class="main-cadastro">
+      <div class="left-cadastro"></div>
+      <div class="card-cadastro">
+        <h1>PROJETOS ABERTOS</h1>
+        <div class="textfield">
+          <ul class="header navigation1">
+            <li class="nav-item">
+              <a class="nav-link1" href="https://docs.google.com/forms/d/e/1FAIpQLSftQfqjytW1W5PuM80wRMoyjnLnLTePrsutEmXixWzZvDDwLw/viewform?usp=sf_link">
+                <span class="nav-icon"></span> OLIMPÍADA DE MATEMÁTICA TERRA ALIEN
+              </a>
+              <br>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link1" href="https://chat.whatsapp.com/JdhDXfihy8U0cm5V5Az5BW">
+                <span class="nav-icon"></span> CLUBE DE LEITURA
+              </a>
+              <br>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link1" href="https://chat.whatsapp.com/Ji976erezVC6Y7AlxWvFVE">
+                <span class="nav-icon"></span> GRUPO DE ESTUDOS TERRA ALIEN
+              </a>
+              <br>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="left-cadastro1">
+        <h1><span class="new">INSCREVA-SE</span></h1>
+        <img src="3.png" class="left-login-img" alt="avaliacaoimg">
+    </div>
+    </div>
+  </section>
+  
+
+<hr class="divisoria">
+
+    <section id="CONCORRÊNCIA">
+<div class="yed"></div>
+    <div class="main-cadastro">
+        <div class="right-cadastro">
+                <div class="left-cadastro">
+            <h1><span class="new">DE OLHO NA CONCORRÊNCIA</span></h1>
+            <img src="8.png" class="left-login-img" alt="avaliacaoimg">
+        </div></div>
+        <div class="right-cadastro"></div>
+        <div class="card-cadastro">
+            <h1>PLACAR</h1>
+            <div id="leaderboard">
+                <!-- Ranking será inserido aqui pelo JavaScript -->
+            </div>
+        </div>
+    </div>
+    <div class="yed"></div>
+    <section id="SIMULADO">
+   
+  <hr class="divisoria">
+
+    <div class="main-cadastro">
+        <div class="left-cadastro"></div>
+        <div class="card-cadastro">
+            <h1>GERAR SIMULADO</h1>
+            <button class="bnt-cadastro" onclick="window.location.href='primer.html'">VAMOS LÁ</button>
+           
+        </div>
+        <div class="left-cadastro1">
+            <h1><span class="new">BORA TREINAR?</span></h1>
+            <img src="3.png" class="left-login-img" alt="avaliacaoimg">
+        </div>
+    </div></section>
+
+  <hr class="divisoria">
+
+    <div class="main-cadastro">
+        <div class="right-cadastro">
+            <div class="left-cadastro">
+                <h1><span>AVALIE A PLATAFORMA</span></h1>
+                <img src="9.png" class="left-login-img" alt="avaliacaoimg">
+            </div>
+        </div>
+        <div class="right-cadastro"></div>
+        <div class="card-cadastro">
+            <h1>AVALIAÇÃO</h1>
+            <div class="ratings">
+                <div class="stars" onclick="addRating(1)">&#9733;</div>
+                <div class="stars" onclick="addRating(2)">&#9733;</div>
+                <div class="stars" onclick="addRating(3)">&#9733;</div>
+                <div class="stars" onclick="addRating(4)">&#9733;</div>
+                <div class="stars" onclick="addRating(5)">&#9733;</div>
+            </div>
+            <input type="hidden" id="starRating" name="starRating" value="0">
+            <div class="textfield">
+                <label for="comment">Comentário</label>
+                <textarea id="comment" placeholder="Digite seu comentário"></textarea>
+            </div>
+            <input type="hidden" id="date" name="date">
+            <button class="bnt-cadastro" onclick="submitReview()">Enviar Avaliação</button>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <h5>Copyright 2024. All rights reserved.</h5>
+        <h6>Design and Developed by terraalien.com<br>Get More <a href="inicio.html" target="_blank">Terra Alien Desenvolvimento</a></h6>
+    </div>
+
+    <script src="painel.js"></script>
+    <script src="ranking.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>

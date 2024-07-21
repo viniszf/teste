@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Task</title>
+    <link rel="stylesheet" href="space1.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="yellow.css" title="yellow">
+
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Lightbox.min css -->
+    <link rel="stylesheet" href="plugins/lightbox2/dist/css/lightbox.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="yellow.css" title="yellow">
+
+    <style>
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .overlay-content {
+            width: 300px;
+            height: 300px;
+            background: repeating-linear-gradient(
+                45deg,
+                black,
+                black 10px,
+                yellow 10px,
+                yellow 20px
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .blinking-image {
+            width: 100px;
+            height: 100px;
+        }
+        .error-message {
+    color: rgb(255, 167, 167);
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body class="gg">
+  
+    <div class="main-cadastro">
+        <div class="left-cadastro">
+            <h1><span>Faça login</span> <br />e veja seu painel!!!</h1>
+            <img src="7.png" class="left-login-img" alt="spaceimg">
+            <form id="myForm2">
+        </div>
+        <div class="right-cadastro"></div>
+        <div class="card-cadastro">
+            <h1>LOGIN</h1>
+            <div class="textfield">
+                <label>Email</label>
+                <input type="email" name="email" id="email" placeholder="Email">
+                <p id="emailError" class="error-message"></p> <!-- Mensagem de erro para o campo de email -->
+            </div>
+            <div class="textfield">
+                <label>Senha</label>
+                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <p id="senhaError" class="error-message"></p> <!-- Mensagem de erro para o campo de senha -->
+            </div>
+            
+            <input type="submit" class="bnt-cadastro" value="Entrar">
+            <h4>
+                Não possui conta?<span> <a href="cadastro.html">Cadastre-se</a></span>
+            </h4>
+        </div>
+    </div>
+    </form>
+
+    <div class="footer-bottom">
+        <h5>Copyright 2024. All rights reserved.</h5>
+        <h6>Design and Developed by terraalien.com<br>Get More <a href="inicio.html" target="_blank">Terra Alien Desenvolvimento</a></h6>
+    </div>
+
+    <div class="overlay" id="loadingOverlay">
+        <div class="overlay-content">
+            <img class="blinking-image" src="your-image-url-here.png" alt="Blinking Image">
+        </div>
+    </div>
+
+    <!-- Custom js -->
+    <script src="inicio.js"></script>
+    <script src="login.js"></script>
+
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyA7-3MzZXBthpywD1wdS2un_xKBarxOCZg",
+          authDomain: "sapa-fa0db.firebaseapp.com",
+          databaseURL: "https://sapa-fa0db-default-rtdb.firebaseio.com",
+          projectId: "sapa-fa0db",
+          storageBucket: "sapa-fa0db.appspot.com",
+          messagingSenderId: "1059555799613",
+          appId: "1:1059555799613:web:ea28a20e8aa5c48e273054",
+          measurementId: "G-BXYHEWRFPN"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>
